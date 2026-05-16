@@ -7,7 +7,7 @@ A Deep Learning project that predicts whether a passenger survived the Titanic d
 Before this project, I had already built a **Titanic Survival Prediction model using Logistic Regression with scikit-learn**.
 This project helped me understand the transition from:
 
-```text id="wmv3rk"
+```text
 Traditional Machine Learning
 →
 Deep Learning using Neural Networks
@@ -21,7 +21,7 @@ and how Neural Networks differ from classical ML models.
 
 The goal of this project is to predict Titanic passenger survival using passenger information such as:
 
-```text id="v5t2fa"
+```text
 (Pclass, Sex, Age, Fare, Family Features, Title Features) → Survived (0 or 1)
 ```
 
@@ -33,13 +33,13 @@ The neural network learns patterns from passenger attributes and predicts surviv
 
 My previous Titanic project used:
 
-```text id="x1p7nl"
+```text
 Logistic Regression (scikit-learn)
 ```
 
 This project replaces it with:
 
-```text id="n8u4qw"
+```text
 Feedforward Neural Network (PyTorch)
 ```
 
@@ -72,7 +72,8 @@ This project covers:
 * Weight Decay (L2 Regularization)
 * Hyperparameter Tuning
 * Loss Visualization
-* Model Evaluation
+* Precision, Recall & F1 Score
+* Confusion Matrix
 * Saving & Loading Model Parameters
 
 ---
@@ -112,7 +113,7 @@ Engineered features include:
 
 # 🧠 Neural Network Architecture
 
-```text id="c7m2zy"
+```text
 12 → 16 → 8 → 1
 ```
 
@@ -130,7 +131,7 @@ The final output predicts survival probability.
 
 ### Loss Function
 
-```python id="z4n1kg"
+```python
 nn.BCEWithLogitsLoss()
 ```
 
@@ -140,7 +141,7 @@ Used for binary classification.
 
 ### Optimizer
 
-```python id="u9v6rt"
+```python
 torch.optim.Adam()
 ```
 
@@ -164,16 +165,16 @@ to observe how regularization affects neural network performance.
 
 ### Save Trained Model
 
-```python id="y5x2fd"
-torch.save(model.state_dict(), "titanic_nn_model.pth")
+```python
+torch.save(model.state_dict(), "titanic_model.pth")
 ```
 
 ---
 
 ### Load Saved Model
 
-```python id="g2m8ql"
-model.load_state_dict(torch.load("titanic_nn_model.pth"))
+```python
+model.load_state_dict(torch.load("titanic_model.pth"))
 model.eval()
 ```
 
@@ -183,14 +184,18 @@ The trained model parameters are stored in a `.pth` file, allowing the neural ne
 
 # 📈 Final Results
 
-```text id="r6k3pa"
-Accuracy ≈ 79.33%
+```text
+Accuracy  ≈ 79.33%
+Precision ≈ 0.77
+Recall    ≈ 0.72
+F1 Score  ≈ 0.74
 ```
 
 The project also includes:
 
 * Training Loss Visualization
 * Hyperparameter Experiments
+* Confusion Matrix Visualization
 * Neural Network Performance Analysis
 
 ---
@@ -211,11 +216,11 @@ Through this project, I learned:
 
 # 📂 Project Structure
 
-```text id="m4j7hx"
+```text
 titanic-logistic-regression-vs-neural-network
 │
 ├── titanic_nn.ipynb
-├── titanic_nn_model.pth
+├── titanic_model.pth
 ├── train.csv
 ├── README.md
 ```
